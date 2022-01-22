@@ -1,0 +1,95 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Layout.cshtml";
+	var mission = (ContentModels.Home) Model.Root();
+	var content = mission.Mission;
+	var Campaigns = (ContentModels.Campaigns)Model.Root().Children().Where(x => x.IsDocumentType("Campaigns")).FirstOrDefault();
+}
+<!--==============================Content=================================-->
+		<div class="content"><div class="ic">More Website Templates TemplateMonster.com - March 24, 2014!</div>
+			<div class="container_12">
+				<div class="grid_6">
+					<h2>Meet Our Team</h2>
+					<img src="images/page1_img1.jpg" alt="" class="img_inner fleft">
+					<div class="extra_wrapper">
+						<p class="col2"><a href="#">Cras facilisis, nulla vel viverra tor, leo magna sodales felis, quis </a></p>
+						Proin pharetra luctus diamer scelerisque eros convallisa <br>
+						<a href="#" class="btn">Learn More</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="grid_5 prefix_1">
+					@*<h2>Our Mission</h2>
+					<div class="rel1">
+						<p>Following the <span class="col1"><a href="http://blog.templatemonster.com/free-website-templates/" >link</a></span> you’ll find all you wanted to know about free theme released by TemplateMonster.</p>
+						Need more themes of this kind? Find a variety of premium <span class="col1"><a href="http://www.templatemonster.com/properties/topic/society-people/" rel="nofollow">society &amp; people templates</a></span> at TemplateMonster.
+					</div>*@
+					@Model.Mission
+					<a href="#" class="btn">Learn More</a>
+				</div>
+			</div>
+			<div class="hor"></div>
+			<div class="container_12">
+				<div class="grid_3">
+					<h2>Latest News</h2>
+					<ul class="list">
+						<li>
+							<time datetime="2014-01-01">29<span>Jan</span></time>
+							<div class="extra_wrapper">
+								<div class="title col2"><a href="#">Vivamuagna</a></div>
+								amus at magn
+								malesuada fauc
+							</div>
+						</li>
+						<li>
+							<time datetime="2014-01-01">02<span>Feb</span></time>
+							<div class="extra_wrapper">
+								<div class="title col2"><a href="#">Dereamuagne</a></div>
+								amus at magn
+								malesuada faut
+							</div>
+						</li>
+						<li>
+							<time datetime="2014-01-01">20<span>Feb</span></time>
+							<div class="extra_wrapper">
+								<div class="title col2"><a href="#">Hovamuagrt</a></div>
+								emus at mago malesuada fau
+							</div>
+						</li>
+						<li>
+							<time datetime="2014-01-01">05<span>Mar</span></time>
+							<div class="extra_wrapper">
+								<div class="title col2"><a href="#">Meloamuar</a></div>
+								ferus at magne malesuada faui
+							</div>
+						</li>
+					</ul>
+					<blockquote class="bq1">
+						<div class="title">Testimonials</div>
+						<p>Nulla vel viverra auctorleo magna sodales felis, quis malesuada nibh odio ut </p>
+						<div class="col2">Sandra Wood</div>
+					</blockquote>
+				</div>
+				<div class="grid_9">
+					<h2>Our Campaigns</h2>
+					<section>
+						<ul id="da-thumbs" class="da-thumbs">
+							@*@{
+								foreach(ContentModels.Campaign item in Campaigns.Children.Take(Convert.ToInt32(Campaigns.NumberOfCampaigns)))
+								{
+									<li>
+										<a href="#">
+										<img src=@item.CampaignImage.Url() alt="" />
+										<div><span>@item.CampaignTitle</span></div>
+										</a>
+									</li>
+								}
+							}*@
+						</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+		

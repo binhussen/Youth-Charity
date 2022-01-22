@@ -1,0 +1,161 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.About>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Layout.cshtml";
+	var Campaigns = (ContentModels.Campaigns)Model.Root().Children().Where(x => x.IsDocumentType("Campaigns")).FirstOrDefault();
+}
+<div class="content"><div class="ic">More Website Templates TemplateMonster.com - March 24, 2014!</div>
+			<!--Press / Media-->
+			<div class="container_12">
+				<div class="grid_7">
+					<div class="block2">
+						<h2><a href="http://www.youtube.com/watch?v=W4GMYQx58OE">The Lizard Effect in Lesotho</a></h2>
+						<figure class="video">
+							<iframe width="640" height="360" src="http://www.youtube.com/embed/W4GMYQx58OE?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+						</figure>
+						Lorem ipsum dolor sit amet, secteturipiscing elitno mollis erat mattis neque cilisis, sit amet ultricies erater utrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam
+					</div>
+					<div class="block2">
+						<h2> <a href="http://www.youtube.com/watch?v=51eZ2IIPNas">Run It Forward - Official Charity (Promo Video)</a></h2>
+						<figure class="video">
+							<iframe width="640" height="360" src="http://www.youtube.com/embed/51eZ2IIPNas?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+						</figure>
+						Dorem ipsum dolor sit amet, secteturipiscing elitno mollis erat mattis nequetolim cilisis, sit amet ultricies erater utrum. Dras facilisis, nulla vel viverra auctorleot magna sodales felis, quis malesuada nibh odio ut veliroin pharetra luctus di
+					</div>
+					<div class="block2">
+						<h2><a href="http://www.youtube.com/watch?v=DEnlrE4iMBU">World Water Day Video from Charity: Water</a></h2>
+						<figure class="video">
+							<iframe width="640" height="360" src="http://www.youtube.com/embed/DEnlrE4iMBU?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+						</figure>
+						Sorem ipsum dolor sit amet, secteturipiscing elitno mollis erat mattis nequetolim cilisis, sit amet ultricies erater utrum. Fras facilisis, nulla vel viverra auctorleot magna sodales felis, quis malesuada nibh odio ut veliroin pharetra
+					</div>
+				</div>
+				<div class="grid_4 prefix_1">
+					<h2>Top Videos</h2>
+					<ul class="list2 col2">
+						<li><a href="#">Vivamuagnamereoli molo der</a></li>
+						<li><a href="#">Aliquam nibh ante, egestaslo</a></li>
+						<li><a href="#">Integer convallis orci vel mi laoree</a></li>
+						<li><a href="#">Hnteger convallis reoli molober</a></li>
+						<li><a href="#">Holokitivamuagnamereoli molo</a></li>
+						<li><a href="#">Geryvamuagnamereoli moki</a></li>
+						<li><a href="#">Mertuagnamereoli molonuber</a></li>
+						<li><a href="#">Berivamuagnamereoli molomi</a></li>
+						<li><a href="#">Ferivamuagnamereoli molmji</a></li>
+					</ul>
+					<h2>Archive</h2>
+					<ul class="list col2 l1">
+						<li>
+							<time datetime="2014-01-01">20<span>Jan</span></time>
+							<div class="extra_wrapper"><a href="#">Lorem ipsum dolor sit ametcing elitno mollis erat mattis neque </a></div>
+						</li>
+						<li>
+							<time datetime="2014-01-01">02<span>Feb</span></time>
+							<div class="extra_wrapper"><a href="#">Zorem ipsum dolor sit uripiscing elitno mollis erat mattis neque </a></div>
+						</li>
+						<li>
+							<time datetime="2014-01-01">10<span>Feb</span></time>
+							<div class="extra_wrapper"><a href="#">Porem ipsum dolor sit etpiscing elitno mollis erat mattis neque</a></div>
+						</li>
+						<li>
+							<time datetime="2014-01-01">02<span>Mar</span></time>
+							<div class="extra_wrapper"><a href="#">Koloorem ipsum dolor sit amet, teturipiscing elitno mollis erat </a></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="container_12">
+				<!--Compagins-->
+				<div class="grid_9">
+					<h2>Our Campaigns</h2>
+					<section>
+						<ul id="da-thumbs" class="da-thumbs">
+							@{
+								foreach(ContentModels.Campaign item in Campaigns.Children.Take(Convert.ToInt32(Campaigns.NumberOfCampaigns)))
+								{
+									<li>
+										<a href="#">
+										<img src=@item.CampaignImage.Url() alt="" />
+										<div><span>@item.CampaignTitle</span></div>
+										</a>
+									</li>
+								}
+							}
+						</ul>
+					</section>
+				</div>
+
+
+				<div class="grid_12">
+					<h2>Find Us</h2>
+					<div class="map">
+						<figure class="">
+							<iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+						</figure>
+						<div class="grid_4 alpha">
+							<h2>Address:</h2>
+							<address>
+								<span class="fa fa-home"></span>
+								138 Atlantis Ln <br>
+								Kingsport <br>
+								Illinois 121164
+							</address>
+						</div>
+						<div class="grid_4">
+							<h2>Phones:</h2>
+							<div class="m_phone">
+								<div class="fa fa-phone"></div>
+								+1 800 559 6580
+							</div>
+							<div class="m_phone">
+								<div class="fa fa-print"></div>
+								+1 504 889 9898138
+							</div>
+						</div>
+						<div class="grid_4 omega">
+							<h2>Email:</h2>
+							<a href="#"><span class="fa fa-envelope-o"></span> mail@demolink.org</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<h2>Contact Form</h2>
+					24/7 support is available for all <span class="col1"><a href="http://www.templatemonster.com/website-templates.php" rel="nofollow">premium</a></span> themes produced by TemplateMonster. Free themes go without it.
+					<br>
+					If you want a help in customization of the chosen freebie, address to <span class="col1"><a href="http://www.templatetuning.com/" rel="nofollow">TemplateTuning.</a></span>
+					<form id="form">
+						<div class="success_wrapper">
+							<div class="success-message">Contact form submitted</div>
+						</div>
+						<label class="name">
+							<input type="text" placeholder="Name:" data-constraints="Required JustLetters" />
+							<span class="empty-message">*This field is required.</span>
+							<span class="error-message">*This is not a valid name.</span>
+						</label>
+						<label class="email">
+							<input type="text" placeholder="Email:" data-constraints="Required Email" />
+							<span class="empty-message">*This field is required.</span>
+							<span class="error-message">*This is not a valid email.</span>
+						</label>
+						<label class="subject">
+							<input type="text" placeholder="Subject:" data-constraints="Required JustLetters"/>
+							<span class="empty-message">*This field is required.</span>
+							<span class="error-message">*This is not a valid phone.</span>
+						</label>
+						<label class="message">
+							<textarea placeholder="Message:" data-constraints='Required Length(min=20,max=999999)'></textarea>
+							<span class="empty-message">*This field is required.</span>
+							<span class="error-message">*The message is too short.</span>
+						</label>
+						<div>
+							<div class="clear"></div>
+							<div class="btns">
+								<a href="#" data-type="reset" class="btn">Clear</a>
+								<a href="#" data-type="submit" class="btn">Send</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
