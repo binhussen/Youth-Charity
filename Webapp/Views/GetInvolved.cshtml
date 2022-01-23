@@ -3,82 +3,144 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Layout.cshtml";
+	var Voluntaries = (ContentModels.Voluntaries)Model.Root().Children().Where(x => x.IsDocumentType("Voluntaries")).FirstOrDefault();
 }
 <div class="content"><div class="ic">More Website Templates TemplateMonster.com - March 24, 2014!</div>
+<!--== Start Volunteer Form Area ==-->
+    <section class="volunteer-form-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="volunteer-form">
+              <div class="section-title">
+                <h5 class="subtitle">Join With Us</h5>
+                <h2 class="title">If You Interest! You Can Join With Us <span>As A Volunteer.</span></h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1500 an when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but electronic typesetting, remaining essentially unchanged.</p>
+              </div>
+              <form class="volunteer-form-wrapper" id="contact-form" action="http://whizthemes.com/mail-php/raju/arden/mail.php" method="post">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="row row-gutter-20">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input class="form-control" type="text" name="con_name" placeholder="First Name">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input class="form-control" type="text" name="con_name" placeholder="Last Name">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input class="form-control" type="email" name="con_email" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input class="form-control" type="text" name="con_age" placeholder="Age">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input class="form-control" type="text" name="con_religion" placeholder="Religion">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <input class="form-control" type="text" name="con_phone" placeholder="Phone">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group mb-0">
+                          <textarea class="form-control textarea" name="con_message" placeholder="Message"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group mb-0">
+                          <button class="btn-theme btn-gradient btn-slide no-border" type="submit">Submit Now</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- Message Notification -->
+            <div class="form-message"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Volunteer Form Area ==-->
+    <!--== Start Funfact Area ==-->
+    <section class="funfact-area funfact-default-area">
+      <div class="container">
+        <div class="row row-gutter-0 funfact-items-style1">
+          <div class="col-lg-4 funfact-item">
+            <div class="inner-content">
+              <div class="icon-box">
+                <img class="icon" src="assets/img/icons/f1.png" alt="Image-Givest">
+                <img class="shape-img" src="assets/img/shape/4.png" alt="Image-Givest">
+              </div>
+              <div class="content">
+                <div class="number">
+                  <h2><span class="counter-animate">598</span>K</h2>
+                </div>
+                <img class="line-shape" src="assets/img/shape/funfact-line1.png" alt="Image-Givest">
+                <p class="title">// Poor People</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 funfact-item">
+            <div class="inner-content">
+              <div class="icon-box">
+                <img class="icon" src="assets/img/icons/f2.png" alt="Image-Givest">
+                <img class="shape-img" src="assets/img/shape/4.png" alt="Image-Givest">
+              </div>
+              <div class="content">
+                <div class="number">
+                  <h2><span class="counter-animate">897</span>M</h2>
+                </div>
+                <img class="line-shape" src="assets/img/shape/funfact-line1.png" alt="Image-Givest">
+                <p class="title">// Fund raised</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 funfact-item">
+            <div class="inner-content">
+              <div class="icon-box">
+                <img class="icon" src="assets/img/icons/f3.png" alt="Image-Givest">
+                <img class="shape-img" src="assets/img/shape/4.png" alt="Image-Givest">
+              </div>
+              <div class="content">
+                <div class="number">
+                  <h2><span class="counter-animate">998</span>+</h2>
+                </div>
+                <img class="line-shape" src="assets/img/shape/funfact-line1.png" alt="Image-Givest">
+                <p class="title">// Active Member</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Funfact Area ==-->
+
 			<div class="container_12">
 				<div class="gallery">
-					<div class="grid_3">
-						<h2>Aliquam nibh antd dictum</h2>
-						<a href="images/big1.jpg" class="gal"><img src="images/page4_img1.jpg" alt=""></a>
-						Broin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis masser
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Praesent faucibus malesu</h2>
-						<a href="images/big2.jpg" class="gal"><img src="images/page4_img2.jpg" alt=""></a>
-						Kroin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis mass
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Hraesenibus malesua</h2>
-						<a href="images/big3.jpg" class="gal"><img src="images/page4_img3.jpg" alt=""></a>
-						Groin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis massylo
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Tam nibh antd dictumer</h2>
-						<a href="images/big4.jpg" class="gal"><img src="images/page4_img4.jpg" alt=""></a>
-						Xasroin pharetra luctudiamesque eros convallikoaecenas vehicula egestas venenatisss
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="clear"></div>
-					<div class="grid_3">
-						<h2>Stibuluantd dictumertol</h2>
-						<a href="images/big5.jpg" class="gal"><img src="images/page4_img5.jpg" alt=""></a>
-						Kroin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis mass
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Vestibulum volutpat turpi</h2>
-						<a href="images/big6.jpg" class="gal"><img src="images/page4_img6.jpg" alt=""></a>
-						Froin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis massolo
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Ferquam nibh antd dictuo</h2>
-						<a href="images/big7.jpg" class="gal"><img src="images/page4_img7.jpg" alt=""></a>
-						Rein pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatisis massde
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Deram nibh antd dictumo</h2>
-						<a href="images/big8.jpg" class="gal"><img src="images/page4_img8.jpg" alt=""></a>
-						Jroin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis masolo
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="clear"></div>
-					<div class="grid_3">
-						<h2>Gertolobh antd dictumew</h2>
-						<a href="images/big9.jpg" class="gal"><img src="images/page4_img9.jpg" alt=""></a>
-						Geroin pharetra luctusdiamesque erosallikoaecenas vehicul egestas venenatis. Duis masswertloi
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
-					<div class="grid_3">
-						<h2>Aliquam nibh antd dictum</h2>
-						<a href="images/big10.jpg" class="gal"><img src="images/page4_img10.jpg" alt=""></a>
-						Kroin pharetra luctus diamesque eros convallikoaecenas vehicula egestas venenatis. Duis mass
-						<br>
-						<a href="#" class="btn">Learn More</a>
-					</div>
+					@{
+						foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
+							{
+								<div class="grid_3">
+								<h2>@item.VoluntaryTitle</h2>
+								<a href=@item.VoluntaryImage.Url() class="gal"><img src=@item.VoluntaryImage.Url() alt=""></a>
+								@item.VoluntaryDescription
+								<br>
+								<a href="#" class="btn">Learn More</a>
+							</div>
+							}
+					}	
 				</div>
 			</div>
 		</div>
