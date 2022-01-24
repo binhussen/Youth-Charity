@@ -107,17 +107,8 @@
                 </div>
             </div>
         </header><!-- /Header Section -->
-		<div class="header-height"></div>						
-							   @*@{
-								   var links = homePage.NavLinks;
-								   if(links.Any()){
-									   <li class="@Html.Raw(Model.Id == homePage.Id?"current" :"")"><a href="@homePage.Url()">@homePage.Name()</a></li>
-										@foreach (var link in links)
-									   {
-										   <li class="@(link.Name() == Model.Name() ? "current" :"")"><a href="@link.Url()">@link.Name()</a></li>
-									   }
-								   }
-							   }*@
+		<div class="header-height"></div>
+
                                @RenderBody()
 @*<div class="sponsor-section bd-bottom">
             <div class="container">

@@ -9,6 +9,12 @@
 	var Banners = (ContentModels.Banners)Model.Root().Children().Where(x => x.IsDocumentType("Banners")).FirstOrDefault();
 	var Promotions = (ContentModels.Promotions)Model.Root().Children().Where(x => x.IsDocumentType("Promotions")).FirstOrDefault();
 	var Voluntaries = (ContentModels.Voluntaries)Model.Root().Children().Where(x => x.IsDocumentType("Voluntaries")).FirstOrDefault();
+	var Events = (ContentModels.Events)Model.Root().Children().Where(x => x.IsDocumentType("Events")).FirstOrDefault();
+	var Peoples = (ContentModels.Peoples)Model.Root().Children().Where(x => x.IsDocumentType("Peoples")).FirstOrDefault();
+	var Blogs = (ContentModels.Blogs)Model.Root().Children().Where(x => x.IsDocumentType("BLogs")).FirstOrDefault();
+	var Moneys = (ContentModels.Moneys)Model.Root().Children().Where(x => x.IsDocumentType("Moneys")).FirstOrDefault();
+	var Activities = (ContentModels.Activities)Model.Root().Children().Where(x => x.IsDocumentType("Activities")).FirstOrDefault();
+	var Objectives = (ContentModels.Objectives)Model.Root().Children().Where(x => x.IsDocumentType("Objectives")).FirstOrDefault();
 }
 <!--==============================Content=================================-->
 <section class="slider-section">
@@ -69,99 +75,62 @@
 		<section class="causes-section bg-grey bd-bottom padding">
             <div class="container">
                 <div class="section-heading text-center mb-40">
-                    <h2>Recent Causes</h2>
+                    <h2>@Activities.ActivitiesTitle</h2>
                     <span class="heading-border"></span>
-                    <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
+                    <p>@Activities.ActivityContent</p>
                 </div><!-- /Section Heading -->
                 <div class="causes-wrap row">
+                    @{
+                    foreach(ContentModels.Activity item in Activities.Children.Take(Convert.ToInt32(Activities.NumberOfActivities)))
+                    {
                     <div class="col-md-4 xs-padding">
                         <div class="causes-content">
                            <div class="causes-thumb">
-                                <img src="img/causes-1.jpg" alt="causes">
+                                <img src=@item.ActivityImage.Url() alt="causes">
                                 <a href="#" class="donate-btn">Donate Now<i class="ti-plus"></i></a>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">25%</span></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">@item.ActivityProgress%</span></div>
                                 </div>
                            </div>
                             <div class="causes-details">
-                                <h3>First charity activity of this summer.</h3>
-                                <p>Help today because tomorrow you may be the one who needs more helping!</p>
+                                <h3>@item.ActivityTitle</h3>
+                                <p>@item.ActivityContent</p>
                                 <div class="donation-box">
-                                    <p><i class="ti-bar-chart"></i>Goal: $45000</p>
-                                    <p><i class="ti-thumb-up"></i>Raised: $5000</p>
+                                    <p><i class="ti-bar-chart"></i>@item.ActivityGoal</p>
+                                    <p><i class="ti-thumb-up"></i>@item.ActivityRaised</p>
                                 </div>
                                 <a href="#" class="read-more">Read More</a>
                             </div>
                         </div>
-                    </div><!-- /Causes-1 -->
-                    <div class="col-md-4 xs-padding">
-                        <div class="causes-content">
-                           <div class="causes-thumb">
-                                <img src="img/causes-2.jpg" alt="causes">
-                                <a href="#" class="donate-btn">Donate Now<i class="ti-plus"></i></a>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">45%</span></div>
-                                </div>
-                           </div>
-                            <div class="causes-details">
-                                <h3>Big charity: build school for poor children.</h3>
-                                <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                                <div class="donation-box">
-                                    <p><i class="ti-bar-chart"></i>Goal: $45000</p>
-                                    <p><i class="ti-thumb-up"></i>Raised: $5000</p>
-                                </div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div><!-- /Causes-2 -->
-                    <div class="col-md-4 xs-padding">
-                        <div class="causes-content">
-                           <div class="causes-thumb">
-                                <img src="img/causes-3.jpg" alt="causes">
-                                <a href="#" class="donate-btn">Donate Now<i class="ti-plus"></i></a>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">75%</span></div>
-                                </div>
-                           </div>
-                            <div class="causes-details">
-                                <h3>Building clean-water system for rural poor.</h3>
-                                <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                                <div class="donation-box">
-                                    <p><i class="ti-bar-chart"></i>Goal: $45000</p>
-                                    <p><i class="ti-thumb-up"></i>Raised: $5000</p>
-                                </div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div><!-- /Causes-3 -->
+                    </div><!-- /Causes -->
+                    }}
                 </div>
             </div>
         </section><!-- /Causes Section -->
+
         <section class="about-section bd-bottom shape circle padding">
             <div class="container">
                 <div class="row">
                    <div class="col-md-4 xs-padding">
                         <div class="profile-wrap">
-                            <img class="profile" src="img/profile.jpg" alt="profile">
-                            <h3>Jonathan Smith <span>CEO & Founder of Charitify.</span></h3>
-                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                            <img src="img/sign.png" alt="sign">
+                            <img class="profile" src=@Objectives.ObjectivesImage.Url() alt="profile">
+                            <h3>@Objectives.ObjectivesTitle <span>@Objectives.ObjectivesDetail</span></h3>
+                            <p>@Objectives.ObjectivesContent</p>
+                            <img src=@Objectives.ObjectivesSign.Url() alt="sign">
                         </div>
                     </div>
                     <div class="col-md-8 xs-padding">
                         <div class="about-wrap row">
+                        @{
+                    foreach(ContentModels.Objective item in Objectives.Children.Take(Convert.ToInt32(Objectives.NumberOfObjectives)))
+                    {
                             <div class="col-md-6 xs-padding">
-                                <img src="img/history.jpg" alt="about-thumb">
-                                <h3>Our History</h3>
-                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
+                                <img src=@item.ObjectiveImage.Url() alt="about-thumb">
+                                <h3>@item.ObjectiveTitle</h3>
+                                <p>@item.ObjectiveContent</p>
                                 <a href="#" class="default-btn">Read More</a>
                             </div>
-                            <div class="col-md-6 xs-padding">
-                                <img src="img/mission.jpg" alt="about-thumb">
-                                <h3>Our Mission</h3>
-                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
-                                <a href="#" class="default-btn">Read More</a>
-                            </div>
+                            }}
                         </div>
                     </div>
                 </div>
@@ -174,40 +143,41 @@
                     <div class="col-md-6 xs-padding">
                         <div class="campaigns-wrap">
                             <h4>Featured Campaigns</h4>
-                            <h2>Featured project to built a School.</h2>
-                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                            <h2>@Activities.FeatureTitle</h2>
+                            <p>@Activities.FeatureContent</p>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">35%</span></div>
+                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">@Activities.FeatureProgress%</span></div>
                             </div>
                             <div class="donation-box">
-                                <h3><i class="ti-bar-chart"></i>Goal: $450000</h3>
-                                <h3><i class="ti-thumb-up"></i>Raised: $55000</h3>
+                                <h3><i class="ti-bar-chart"></i>@Activities.FeatureGoal</h3>
+                                <h3><i class="ti-thumb-up"></i>@Activities.FeatureRaised</h3>
                             </div>
                             <a href="#" class="default-btn">Donate Now</a>
                         </div>
                     </div>
                     <div class="col-md-6 xs-padding">
                         <div class="video-wrap">
-                            <img src="img/video.jpg" alt="video">
+                            <img src=@Activities.FeatureImage alt="video">
                             <div class="play">
-                                <a class="img-popup" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=_IlLwfC2dNc"><i class="ti-control-play"></i></a>
+                                <a class="img-popup" data-autoplay="true" data-vbtype="video" href=@Activities.FeatureMedia><i class="ti-control-play"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- /Featured Campaigns Section -->
+
         <section class="team-section bg-grey bd-bottom circle shape padding">
             <div class="container">
                 <div class="section-heading text-center mb-40">
-                    <h2>Meet Out Volunteers</h2>
+                    <h2>@Voluntaries.VoluntariesTitle</h2>
                     <span class="heading-border"></span>
-                    <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
+                    <p>@Voluntaries.VoluntariesDetail</p>
                 </div><!-- /Section Heading -->
                 <div class="team-wrapper row">
                     <div class="col-lg-6 sm-padding">
                         <div class="team-wrap row">
-                            @{
+                    @{
                     foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
                     {
                         
@@ -224,15 +194,19 @@
                     </div>
                     <div class="col-lg-6 sm-padding">
                         <div class="team-content">
-                            <h2>Become a Volunteer?</h2>
-                            <h3>Join your hand with us for a better life and beautiful future.</h3>
-                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                            <h2>@Voluntaries.SubTitle</h2>
+                            <h3>@Voluntaries.SubContent</h3>
+                            <p>@Voluntaries.SubDetail</p>
                             <ul class="check-list">
-                                <li><i class="fa fa-check"></i>We are friendly to each other.</li>
-                                <li><i class="fa fa-check"></i>If you join with us,We will give you free training.</li>
-                                <li><i class="fa fa-check"></i>Its an opportunity to help poor children.</li>
-                                <li><i class="fa fa-check"></i>No goal requirements.</li>
-                                <li><i class="fa fa-check"></i>Joining is tottaly free. We dont need any money from you.</li>
+                        @{
+                            foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
+                            {
+                                if (@item.VoluntaryChecklist != "")
+                                {
+                                    <li><i class="fa fa-check"></i>@item.VoluntaryChecklist</li>
+                                }
+                            }
+                        }
                             </ul>
                             <a href="#" class="default-btn">Join With Us</a>
                         </div>
@@ -244,87 +218,47 @@
         <section id="counter" class="counter-section">
 		    <div class="container">
                 <ul class="row counters">
+                @{
+                     foreach(ContentModels.Money item in Moneys.Children.Take(Convert.ToInt32(Moneys.NumberOfMoneys)))
+					{ 
                     <li class="col-md-3 col-sm-6 sm-padding">
                         <div class="counter-content">
                             <i class="ti-money"></i>
-                            <h3 class="counter">85389</h3>
-                            <h4 class="text-white">Money Donated</h4>
+                            <h3 class="counter">@item.MoneyAmount</h3>
+                            <h4 class="text-white">@item.MoneyTitle</h4>
                         </div>
                     </li>
-                    <li class="col-md-3 col-sm-6 sm-padding">
-                        <div class="counter-content">
-                            <i class="ti-face-smile"></i>
-                            <h3 class="counter">10693</h3>
-                            <h4 class="text-white">Volunteer Around The World</h4>
-                        </div>
-                    </li>
-                    <li class="col-md-3 col-sm-6 sm-padding">
-                        <div class="counter-content">
-                            <i class="ti-user"></i>
-                            <h3 class="counter">50177</h3>
-                            <h4 class="text-white">People Impacted</h4>
-                        </div>
-                    </li>
-                    <li class="col-md-3 col-sm-6 sm-padding">
-                        <div class="counter-content">
-                            <i class="ti-comments"></i>
-                            <h3 class="counter">669</h3>
-                            <h4 class="text-white">Positive Feedbacks</h4>
-                        </div>
-                    </li>
+                    }}
                 </ul>
 		    </div>
 		</section><!-- Counter Section -->
+
         <section class="events-section bg-grey bd-bottom padding">
            <div class="container">
                 <div class="section-heading text-center mb-40">
-                    <h2>Upcoming Events</h2>
+                    <h2>@Events.EventsTitle</h2>
                     <span class="heading-border"></span>
-                    <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
+                    <p>@Events.EventsContent</p>
                 </div><!-- /Section Heading -->
                 <div id="event-carousel" class="events-wrap owl-Carousel">
+                @{
+                     foreach(ContentModels.Event item in Events.Children.Take(Convert.ToInt32(Events.NumberOfEvents)))
+					{ 
                     <div class="events-item">
                         <div class="event-thumb">
-                           <img src="img/events-1.jpg" alt="events">
+                           <img src=@item.EventImage.Url() alt="events">
                         </div>
                         <div class="event-details">
-                            <h3>Let's talk about the poor children.</h3>
+                            <h3>@item.EventTitle</h3>
                             <div class="event-info">
-                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
-                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
+                                <p><i class="ti-calendar"></i>@item.EventStart</p>
+                                <p><i class="ti-location-pin"></i>@item.EventPlace</p>
                             </div>
-                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
+                            <p>@item.EventContent</p>
                             <a href="#" class="default-btn">Read More</a>
                         </div>
-                    </div><!-- Event-1 -->
-                    <div class="events-item">
-                        <div class="event-thumb">
-                           <img src="img/events-2.jpg" alt="events">
-                        </div>
-                        <div class="event-details">
-                            <h3>Insure clean water to everyone in Africa.</h3>
-                            <div class="event-info">
-                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
-                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
-                            </div>
-                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                            <a href="#" class="default-btn">Read More</a>
-                        </div>
-                    </div><!-- Event-2 -->
-                    <div class="events-item">
-                        <div class="event-thumb">
-                           <img src="img/events-3.jpg" alt="events">
-                        </div>
-                        <div class="event-details">
-                            <h3>Nepal Earthquake Clean Water Initiative.</h3>
-                            <div class="event-info">
-                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
-                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
-                            </div>
-                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                            <a href="#" class="default-btn">Read More</a>
-                        </div>
-                    </div><!-- Event-3 -->
+                    </div><!-- Event -->
+                    }}
                 </div>
            </div>
         </section><!-- Events Section -->
@@ -332,86 +266,51 @@
         <section class="testimonial-section bd-bottom padding">
             <div class="container">
                 <div class="section-heading text-center mb-40">
-                    <h2>What People Say</h2>
+                    <h2>@Peoples.PeoplesTitle</h2>
                     <span class="heading-border"></span>
-                    <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
+                    <p>@Peoples.PeoplesContent</p>
                 </div><!-- /Section Heading -->
                 <div id="testimonial-carousel" class="testimonial-carousel owl-carousel">
+                 @{
+                     foreach(ContentModels.People item in Peoples.Children.Take(Convert.ToInt32(Peoples.NumberOfPeoples)))
+					{ 
                     <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                        <p>@item.PeopleDetail</p>
                         <div class="testi-footer">
-                           <img src="img/team-1.jpg" alt="profile">
-                            <h4>Jonathan Smith <span>Marketer</span></h4>
+                           <img src=@item.PeopleImage.Url() alt="profile">
+                            <h4>@item.PeopleName <span>@item.PeoplePosition</span></h4>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                        <div class="testi-footer">
-                           <img src="img/team-2.jpg" alt="profile">
-                            <h4>Angelina Rose <span>Designer</span></h4>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                        <div class="testi-footer">
-                           <img src="img/team-3.jpg" alt="profile">
-                            <h4>Taylor Swift <span>Developer</span></h4>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                        <div class="testi-footer">
-                           <img src="img/team-4.jpg" alt="profile">
-                            <h4>Michel Brown <span>Programer</span></h4>
-                        </div>
-                    </div>
+                    }}
                 </div>
             </div>
-        </section><!-- Testimonial Section -->
+        </section><!-- People Section -->
         
         <section class="blog-section bg-grey bd-bottom padding">
             <div class="container">
                 <div class="section-heading text-center mb-40">
-                    <h2>Recent Stories</h2>
+                    <h2>@Blogs.BlogsTitle</h2>
                     <span class="heading-border"></span>
-                    <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
+                    <p>@Blogs.BlogContent</p>
                 </div><!-- /Section Heading -->
                 <div class="row">
                     <div class="col-lg-12 xs-padding">
                         <div class="blog-items grid-list row">
+                        @{
+                     foreach(ContentModels.Blog item in Blogs.Children.Take(Convert.ToInt32(Blogs.NumberOfBlogs)))
+					{ 
                             <div class="col-md-4 padding-15">
                                 <div class="blog-post">
-                                    <img src="img/home-blog-1.jpg" alt="blog post">
+                                    <img src=@item.BlogImage.Url() alt="blog post">
                                     <div class="blog-content">
-                                        <span class="date"><i class="fa fa-clock-o"></i> January 01.2021</span>
-                                        <h3><a href="#">The History of Donation Told</a></h3>
-                                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                                        <span class="date"><i class="fa fa-clock-o"></i> @item.BlogDate</span>
+                                        <h3><a href="#">@item.BlogTitle</a></h3>
+                                        <p>@item.BlogContent</p>
                                         <a href="#" class="post-meta">Read More</a>
                                     </div>
                                 </div>
-                            </div><!-- Post 1 -->
-                            <div class="col-md-4 padding-15">
-                                <div class="blog-post">
-                                    <img src="img/home-blog-2.jpg" alt="blog post">
-                                    <div class="blog-content">
-                                        <span class="date"><i class="fa fa-clock-o"></i> January 01.2021</span>
-                                        <h3><a href="#">Help the Comunity</a></h3>
-                                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                                        <a href="#" class="post-meta">Read More</a>
-                                    </div>
-                                </div>
-                            </div><!-- Post 2 -->
-                            <div class="col-md-4 padding-15">
-                                <div class="blog-post">
-                                    <img src="img/home-blog-3.jpg" alt="blog post">
-                                    <div class="blog-content">
-                                        <span class="date"><i class="fa fa-clock-o"></i> January 01.2021</span>
-                                        <h3><a href="#">Charity Ever Rule the World?</a></h3>
-                                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                                        <a href="#" class="post-meta">Read More</a>
-                                    </div>
-                                </div>
-                            </div><!-- Post 3 -->
+                            </div><!-- Post -->
+                            }}
                         </div>
                     </div><!-- Blog Posts -->
                 </div>
