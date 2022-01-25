@@ -3,8 +3,7 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Layout.cshtml";
-	var mission = (ContentModels.Home) Model.Root();
-	var content = mission.Mission;
+    var site = Model.Root();
 	var Campaigns = (ContentModels.Campaigns)Model.Root().Children().Where(x => x.IsDocumentType("Campaigns")).FirstOrDefault();
 	var Banners = (ContentModels.Banners)Model.Root().Children().Where(x => x.IsDocumentType("Banners")).FirstOrDefault();
 	var Promotions = (ContentModels.Promotions)Model.Root().Children().Where(x => x.IsDocumentType("Promotions")).FirstOrDefault();
@@ -17,14 +16,16 @@
 	var Objectives = (ContentModels.Objectives)Model.Root().Children().Where(x => x.IsDocumentType("Objectives")).FirstOrDefault();
 }
 <!--==============================Content=================================-->
-<section class="slider-section">
+        <section class="slider-section">
             <div class="slider-wrapper">
                 <div id="main-slider" class="nivoSlider">
-                 @{
-                     foreach(ContentModels.Banner item in Banners.Children.Take(Convert.ToInt32(Banners.NumberOfBanners)))
-					{ 
+            @{
+                foreach(ContentModels.Banner item in Banners.Children.Take(Convert.ToInt32(Banners.NumberOfBanners)))
+                { 
+                    <h1>@item.SliderPage</h1>
+                    
                         <img src=@item.SliderImage.Url() alt="" title="#slider-caption-1"/>
-                    }
+                }
 				}
                 </div><!-- /#main-slider -->
                 @{
@@ -48,7 +49,7 @@
                     }
                }<!-- /#slider -->
             </div>
- </section><!-- /#slider-Section -->
+        </section><!-- /#slider-Section -->
 
 		<section class="promo-section bd-bottom">
             <div class="promo-wrap">
