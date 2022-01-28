@@ -1,125 +1,131 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿	@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.About>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Layout.cshtml";
 	var Campaigns = (ContentModels.Campaigns)Model.Root().Children().Where(x => x.IsDocumentType("Campaigns")).FirstOrDefault();
+	var Voluntaries = (ContentModels.Voluntaries)Model.Root().Children().Where(x => x.IsDocumentType("Voluntaries")).FirstOrDefault();
+	var Moneys = (ContentModels.Moneys)Model.Root().Children().Where(x => x.IsDocumentType("Moneys")).FirstOrDefault();
 }
-<div class="content"><div class="ic">More Website Templates TemplateMonster.com - March 24, 2014!</div>
-			<!--Press / Media-->
-			<div class="container_12">
-				<div class="grid_7">
-					<div class="block2">
-						<h2><a href="http://www.youtube.com/watch?v=W4GMYQx58OE">The Lizard Effect in Lesotho</a></h2>
-						<figure class="video">
-							<iframe width="640" height="360" src="http://www.youtube.com/embed/W4GMYQx58OE?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-						</figure>
-						Lorem ipsum dolor sit amet, secteturipiscing elitno mollis erat mattis neque cilisis, sit amet ultricies erater utrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam
-					</div>
-				</div>
-				
-			</div>
-			<div class="container_12">
-				<!--Compagins-->
-				<div class="grid_9">
-					<h2>Our Campaigns</h2>
-					<section>
-						<ul id="da-thumbs" class="da-thumbs">
-							@{
-								foreach(ContentModels.Campaign item in Campaigns.Children.Take(Convert.ToInt32(Campaigns.NumberOfCampaigns)))
-								{
-									<li>
-										<a href="#">
-										<img src=@item.CampaignImage.Url() alt="" />
-										<div><span>@item.CampaignTitle</span></div>
-										</a>
-									</li>
-								}
-							}
-						</ul>
-					</section>
-				</div>
+		<div class="pager-header">
+            <div class="container">
+                <div class="page-content">
+                    <h2>About Us</h2>
+                    <p>Help today because tomorrow you may be the one who <br>needs more helping!</p>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">About Us</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /Page Header -->
+        
+        <section class="about-section bg-grey bd-bottom padding">
+            <div class="container">
+                <div class="row about-wrap">
+                    <div class="col-md-6 xs-padding">
+                        <div class="about-image">
+                            <img src="img/about.jpg" alt="about image">
+                        </div>
+                    </div>
+                    <div class="col-md-6 xs-padding">
+                        <div class="about-content">
+                            <h2>You are definitely intrigued to <br> discover who we are.</h2>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                            <a href="#" class="default-btn">More About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /About Section -->
 
-				<div class="grid_3">
-					<h2>Latest News</h2>
-					<ul class="list">
-						<li>
-							<time datetime="2014-01-01">29<span>Jan</span></time>
-							<div class="extra_wrapper">
-								<div class="title col2"><a href="#">Vivamuagna</a></div>
-								amus at magn
-								malesuada fauc
-							</div>
-						</li>
-						<li>
-							<time datetime="2014-01-01">02<span>Feb</span></time>
-							<div class="extra_wrapper">
-								<div class="title col2"><a href="#">Dereamuagne</a></div>
-								amus at magn
-								malesuada faut
-							</div>
-						</li>
-						<li>
-							<time datetime="2014-01-01">20<span>Feb</span></time>
-							<div class="extra_wrapper">
-								<div class="title col2"><a href="#">Hovamuagrt</a></div>
-								emus at mago malesuada fau
-							</div>
-						</li>
-						<li>
-							<time datetime="2014-01-01">05<span>Mar</span></time>
-							<div class="extra_wrapper">
-								<div class="title col2"><a href="#">Meloamuar</a></div>
-								ferus at magne malesuada faui
-							</div>
-						</li>
-					</ul>
-					<blockquote class="bq1">
-						<div class="title">Testimonials</div>
-						<p>Nulla vel viverra auctorleo magna sodales felis, quis malesuada nibh odio ut </p>
-						<div class="col2">Sandra Wood</div>
-					</blockquote>
-				</div>
+		<section class="team-section bg-grey bd-bottom circle shape padding">
+            <div class="container">
+                <div class="section-heading text-center mb-40">
+                    <h2>@Voluntaries.VoluntariesTitle</h2>
+                    <span class="heading-border"></span>
+                    <p>@Voluntaries.VoluntariesDetail</p>
+                </div><!-- /Section Heading -->
+                <div class="team-wrapper row">
+                    <div class="col-lg-6 sm-padding">
+                        <div class="team-wrap row">
+                    @{
+                    foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
+                    {
+                        
+                            <div class="col-md-6">
+                                <div class="team-details">
+                                   <img src=@item.VoluntaryImage.Url() alt="team">
+                                    <div class="hover">
+                                        <h3>@item.VoluntaryTitle<span>@item.VoluntaryDescription</span></h3>
+                                    </div>
+                                </div>
+                            </div><!-- /Team-1 -->
+                            }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6 sm-padding">
+                        <div class="team-content">
+                            <h2>@Voluntaries.SubTitle</h2>
+                            <h3>@Voluntaries.SubContent</h3>
+                            <p>@Voluntaries.SubDetail</p>
+                            <ul class="check-list">
+                        @{
+                            foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
+                            {
+                                if (@item.VoluntaryChecklist != "")
+                                {
+                                    <li><i class="fa fa-check"></i>@item.VoluntaryChecklist</li>
+                                }
+                            }
+                        }
+                            </ul>
+                            <a href="#" class="default-btn">Join With Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Team Section -->
 
-
-				<div class="grid_12">
-					<h2>Contact Form</h2>
-					24/7 support is available for all <span class="col1"><a href="http://www.templatemonster.com/website-templates.php" rel="nofollow">premium</a></span> themes produced by TemplateMonster. Free themes go without it.
-					<br>
-					If you want a help in customization of the chosen freebie, address to <span class="col1"><a href="http://www.templatetuning.com/" rel="nofollow">TemplateTuning.</a></span>
-					<form id="form">
-						<div class="success_wrapper">
-							<div class="success-message">Contact form submitted</div>
-						</div>
-						<label class="name">
-							<input type="text" placeholder="Name:" data-constraints="Required JustLetters" />
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*This is not a valid name.</span>
-						</label>
-						<label class="email">
-							<input type="text" placeholder="Email:" data-constraints="Required Email" />
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*This is not a valid email.</span>
-						</label>
-						<label class="subject">
-							<input type="text" placeholder="Subject:" data-constraints="Required JustLetters"/>
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*This is not a valid phone.</span>
-						</label>
-						<label class="message">
-							<textarea placeholder="Message:" data-constraints='Required Length(min=20,max=999999)'></textarea>
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*The message is too short.</span>
-						</label>
-						<div>
-							<div class="clear"></div>
-							<div class="btns">
-								<a href="#" data-type="reset" class="btn">Clear</a>
-								<a href="#" data-type="submit" class="btn">Send</a>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+		<section id="counter" class="counter-section">
+		    <div class="container">
+                <ul class="row counters">
+                @{
+                     foreach(ContentModels.Money item in Moneys.Children.Take(Convert.ToInt32(Moneys.NumberOfMoneys)))
+					{ 
+                    <li class="col-md-3 col-sm-6 sm-padding">
+                        <div class="counter-content">
+                            <i class="ti-money"></i>
+                            <h3 class="counter">@item.MoneyAmount</h3>
+                            <h4 class="text-white">@item.MoneyTitle</h4>
+                        </div>
+                    </li>
+                    }}
+                </ul>
+		    </div>
+		</section><!-- Counter Section -->
 		
+		<section class="contact-section padding">
+            <div id="google_map"></div><!-- /#google_map -->
+            <div class="container">
+                <div class="row contact-wrap">
+                    <div class="col-md-6 xs-padding">
+                        <div class="contact-info">
+                            <h3>Get in touch</h3>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference.</p>
+                            <ul>
+                                <li><i class="ti-location-pin"></i> 315 West 33rd Street New York, NY 10001</li>
+                                <li><i class="ti-mobile"></i> +1 212 425 8617, +1 212 425 8533</li>
+                                <li><i class="ti-email"></i> Youremail@companyname.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 xs-padding">
+                        <div class="contact-form">
+                            @Model.Value("placeholder")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Contact Section -->

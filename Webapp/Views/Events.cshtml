@@ -3,4 +3,113 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Layout.cshtml";
+	var Blogs = (ContentModels.Blogs)Model.Root().Children().Where(x => x.IsDocumentType("BLogs")).FirstOrDefault();
 }
+<div class="pager-header">
+            <div class="container">
+                <div class="page-content">
+                    <h2>Upcoming Events</h2>
+                    <p>Help today because tomorrow you may be the one who <br>needs more helping!</p>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Events</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /Page Header -->
+
+        <section class="events-section bg-grey bd-bottom padding">
+           <div class="container">
+                <div id="event-carousel" class="events-wrap owl-Carousel">
+                    <div class="events-item">
+                        <div class="event-thumb">
+                           <img src="img/events-1.jpg" alt="events">
+                        </div>
+                        <div class="event-details">
+                            <h3>Let's talk about the poor children.</h3>
+                            <div class="event-info">
+                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
+                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
+                            </div>
+                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
+                            <a href="#" class="default-btn">Read More</a>
+                        </div>
+                    </div><!-- Event-1 -->
+                    <div class="events-item">
+                        <div class="event-thumb">
+                           <img src="img/events-2.jpg" alt="events">
+                        </div>
+                        <div class="event-details">
+                            <h3>Insure clean water to everyone in Africa.</h3>
+                            <div class="event-info">
+                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
+                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
+                            </div>
+                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
+                            <a href="#" class="default-btn">Read More</a>
+                        </div>
+                    </div><!-- Event-2 -->
+                    <div class="events-item">
+                        <div class="event-thumb">
+                           <img src="img/events-3.jpg" alt="events">
+                        </div>
+                        <div class="event-details">
+                            <h3>Nepal Earthquake Clean Water Initiative.</h3>
+                            <div class="event-info">
+                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
+                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
+                            </div>
+                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
+                            <a href="#" class="default-btn">Read More</a>
+                        </div>
+                    </div><!-- Event-3 -->
+                </div>
+           </div>
+        </section><!-- Events Section -->
+        
+        <section class="cta-section d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                       <div class="cta-content">
+                           <h2>Ready to Join With Us?</h2>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference <br> the abused and the helpless.</p>
+                       </div>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center text-right">
+                        <a href="#" class="default-btn">Contact With Us</a>
+                    </div>
+               </div>
+            </div>
+        </section><!-- Call To Action Section -->
+
+        <section class="blog-section bg-grey bd-bottom padding">
+            <div class="container">
+                <div class="section-heading text-center mb-40">
+                    <h2>@Blogs.BlogsTitle</h2>
+                    <span class="heading-border"></span>
+                    <p>@Blogs.BlogContent</p>
+                </div><!-- /Section Heading -->
+                <div class="row">
+                    <div class="col-lg-12 xs-padding">
+                        <div class="blog-items grid-list row">
+                        @{
+                     foreach(ContentModels.Blog item in Blogs.Children.Take(Convert.ToInt32(Blogs.NumberOfBlogs)))
+					{ 
+                            <div class="col-md-4 padding-15">
+                                <div class="blog-post">
+                                    <img src=@item.BlogImage.Url() alt="blog post">
+                                    <div class="blog-content">
+                                        <span class="date"><i class="fa fa-clock-o"></i> @item.BlogDate</span>
+                                        <h3><a href="#">@item.BlogTitle</a></h3>
+                                        <p>@item.BlogContent</p>
+                                        <a href="#" class="post-meta">Read More</a>
+                                    </div>
+                                </div>
+                            </div><!-- Post -->
+                            }}
+                        </div>
+                    </div><!-- Blog Posts -->
+                </div>
+            </div>
+        </section><!-- Blog Section -->

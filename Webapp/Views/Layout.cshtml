@@ -16,41 +16,38 @@
 		<meta name="description" content="">
         <meta name="author" content="DynamicLayers">
        
-        <title>Charitify || NGO/Charity/Fundraising Template</title>
+        <title>MyHEALTHNET</title>
         
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/img/titleicon.png">
 
         <!-- Font Awesome Icons CSS -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
         <!-- Themify Icons CSS -->
-        <link rel="stylesheet" href="css/themify-icons.css">
+        <link rel="stylesheet" href="/css/themify-icons.css">
         <!-- Elegant Font Icons CSS -->
-        <link rel="stylesheet" href="css/elegant-font-icons.css">
+        <link rel="stylesheet" href="/css/elegant-font-icons.css">
         <!-- Elegant Line Icons CSS -->
-        <link rel="stylesheet" href="css/elegant-line-icons.css">
+        <link rel="stylesheet" href="/css/elegant-line-icons.css">
 		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
 		<!-- Venobox CSS -->
-        <link rel="stylesheet" href="css/venobox/venobox.css">
+        <link rel="stylesheet" href="/css/venobox/venobox.css">
 		<!-- OWL-Carousel CSS -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="/css/owl.carousel.css">
         <!-- Slick Nav CSS -->
-        <link rel="stylesheet" href="css/slicknav.min.css">
+        <link rel="stylesheet" href="/css/slicknav.min.css">
         <!-- Css Animation CSS -->
-        <link rel="stylesheet" href="css/css-animation.min.css">
+        <link rel="stylesheet" href="/css/css-animation.min.css">
         <!-- Nivo Slider CSS -->
-        <link rel="stylesheet" href="css/nivo-slider.css">
+        <link rel="stylesheet" href="/css/nivo-slider.css">
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
 		<!-- Responsive CSS -->
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="/css/responsive.css">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         
         <div class="site-preloader-wrap">
             <div class="spinner"></div>
@@ -83,7 +80,7 @@
                     <div class="bottom-content-wrap row">
                         <div class="col-sm-4">
                             <div class="site-branding">
-                                <a href="#"><img src="img/logo.png" alt="Brand"></a>
+                                <a href="#"><img src="/img/logo.jpg" alt="Brand"></a>
                             </div>
                         </div>
                        <div class="col-sm-8 text-right">
@@ -93,13 +90,6 @@
 							   {
 								   <li class="@(item.IsAncestorOrSelf(Model) ? "active" :"")"><a href="@item.Url()">@item.Name</a></li>
 							   }
-                                @*<li class="active"> <a href="index.html">Home</a>
-                                    <ul>
-                                       <li><a href="index.html">Home Default</a></li>
-                                       <li><a href="index-2.html">Home Modern</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About</a></li>*@
                             </ul>
                             <a href="#" class="default-btn">Donet Now</a>
                        </div>
@@ -109,43 +99,14 @@
         </header><!-- /Header Section -->
 		<div class="header-height"></div>
 
-                               @RenderBody()
-@*<div class="sponsor-section bd-bottom">
-            <div class="container">
-                <ul id="sponsor-carousel" class="sponsor-items owl-carousel">
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-1.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-2.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-3.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-4.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-5.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-6.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-7.png" alt="sponsor-image">
-                    </li>
-                    <li class="sponsor-item">
-                        <img src="img/sponsor-8.png" alt="sponsor-image">
-                    </li>
-                </ul>
-            </div>
-        </div><!-- ./Sponsor Section -->*@
- <section class="widget-section padding">
+        @RenderBody()
+
+        <section class="widget-section padding">
             <div class="container">
                 <div class="widget-wrap row">
                     <div class="col-md-4 xs-padding">
                         <div class="widget-content">
-                            <img src="img/logo-light.png" alt="logo">
+                            <img src="/img/logo-light.png" alt="logo">
                             <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor</p>
                             <ul class="social-icon">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -202,39 +163,39 @@
 		<a data-scroll href="#header" id="scroll-to-top"><i class="arrow_up"></i></a>
 	
 		<!-- jQuery Lib -->
-		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+		<script src="/js/vendor/jquery-1.12.4.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="/js/vendor/bootstrap.min.js"></script>
 		<!-- Tether JS -->
-		<script src="js/vendor/tether.min.js"></script>
+		<script src="/js/vendor/tether.min.js"></script>
         <!-- Imagesloaded JS -->
-        <script src="js/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="/js/vendor/imagesloaded.pkgd.min.js"></script>
 		<!-- OWL-Carousel JS -->
-		<script src="js/vendor/owl.carousel.min.js"></script>
+		<script src="/js/vendor/owl.carousel.min.js"></script>
 		<!-- isotope JS -->
-		<script src="js/vendor/jquery.isotope.v3.0.2.js"></script>
+		<script src="/js/vendor/jquery.isotope.v3.0.2.js"></script>
 		<!-- Smooth Scroll JS -->
-		<script src="js/vendor/smooth-scroll.min.js"></script>
+		<script src="/js/vendor/smooth-scroll.min.js"></script>
 		<!-- venobox JS -->
-		<script src="js/vendor/venobox.min.js"></script>
+		<script src="/js/vendor/venobox.min.js"></script>
         <!-- ajaxchimp JS -->
-        <script src="js/vendor/jquery.ajaxchimp.min.js"></script>
+        <script src="/js/vendor/jquery.ajaxchimp.min.js"></script>
         <!-- Counterup JS -->
-		<script src="js/vendor/jquery.counterup.min.js"></script>
+		<script src="/js/vendor/jquery.counterup.min.js"></script>
         <!-- waypoints js -->
-		<script src="js/vendor/jquery.waypoints.v2.0.3.min.js"></script>
+		<script src="/js/vendor/jquery.waypoints.v2.0.3.min.js"></script>
         <!-- Slick Nav JS -->
-        <script src="js/vendor/jquery.slicknav.min.js"></script>
+        <script src="/js/vendor/jquery.slicknav.min.js"></script>
         <!-- Nivo Slider JS -->
-        <script src="js/vendor/jquery.nivo.slider.pack.js"></script>
+        <script src="/js/vendor/jquery.nivo.slider.pack.js"></script>
         <!-- Letter Animation JS -->
-		<script src="js/vendor/letteranimation.min.js"></script>
+		<script src="/js/vendor/letteranimation.min.js"></script>
         <!-- Wow JS -->
-		<script src="js/vendor/wow.min.js"></script>
+		<script src="/js/vendor/wow.min.js"></script>
 		<!-- Contact JS -->
-		<script src="js/contact.js"></script>
+		<script src="/js/contact.js"></script>
 		<!-- Main JS -->
-		<script src="js/main.js"></script>
+		<script src="/js/main.js"></script>
 
     </body>
 </html>

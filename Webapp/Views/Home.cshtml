@@ -21,10 +21,8 @@
                 <div id="main-slider" class="nivoSlider">
             @{
                 foreach(ContentModels.Banner item in Banners.Children.Take(Convert.ToInt32(Banners.NumberOfBanners)))
-                { 
-                    <h1>@item.SliderPage</h1>
-                    
-                        <img src=@item.SliderImage.Url() alt="" title="#slider-caption-1"/>
+                {
+                    <img src=@item.SliderImage.Url() alt="" title="#slider-caption-1"/>
                 }
 				}
                 </div><!-- /#main-slider -->

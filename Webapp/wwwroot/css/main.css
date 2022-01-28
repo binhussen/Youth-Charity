@@ -1025,7 +1025,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
    9.0 Counter Section
    ========================================================================== */
 .counter-section{
-	background-image: url(../img/counters-bg.jpg);
+	background-image: url(../img/counter.jpg);
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: center center;
@@ -1258,7 +1258,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
    15.0 Page Header Section
    ========================================================================== */
 .pager-header{
-    background-image: url(../img/page-header-bg.jpg);
+    background-image: url(../img/Research.png);
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: center center;

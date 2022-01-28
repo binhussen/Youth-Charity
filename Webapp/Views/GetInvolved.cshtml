@@ -5,66 +5,79 @@
 	Layout = "Layout.cshtml";
 	var Voluntaries = (ContentModels.Voluntaries)Model.Root().Children().Where(x => x.IsDocumentType("Voluntaries")).FirstOrDefault();
 }
-<div class="content"><div class="ic">More Website Templates TemplateMonster.com - March 24, 2014!</div>
-<!--== Start Volunteer Form Area ==-->
+
+<div class="pager-header">
+            <div class="container">
+                <div class="page-content">
+                    <h2>Get Inoloved</h2>
+                    <p>Help today because tomorrow you may be the one who <br>needs more helping!</p>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">get-involved</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /Page Header -->
+<section class="team-section bg-grey bd-bottom circle shape padding">
+            <div class="container">
+                <div class="section-heading text-center mb-40">
+                    <h2>@Voluntaries.VoluntariesTitle</h2>
+                    <span class="heading-border"></span>
+                    <p>@Voluntaries.VoluntariesDetail</p>
+                </div><!-- /Section Heading -->
+                <div class="team-wrapper row">
+                    <div class="col-lg-6 sm-padding">
+                        <div class="team-wrap row">
+                    @{
+                    foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
+                    {
+                        
+                            <div class="col-md-6">
+                                <div class="team-details">
+                                   <img src=@item.VoluntaryImage.Url() alt="team">
+                                    <div class="hover">
+                                        <h3>@item.VoluntaryTitle<span>@item.VoluntaryDescription</span></h3>
+                                    </div>
+                                </div>
+                            </div><!-- /Team-1 -->
+                            }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6 sm-padding">
+                        <div class="team-content">
+                            <h2>@Voluntaries.SubTitle</h2>
+                            <h3>@Voluntaries.SubContent</h3>
+                            <p>@Voluntaries.SubDetail</p>
+                            <ul class="check-list">
+                        @{
+                            foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
+                            {
+                                if (@item.VoluntaryChecklist != "")
+                                {
+                                    <li><i class="fa fa-check"></i>@item.VoluntaryChecklist</li>
+                                }
+                            }
+                        }
+                            </ul>
+                            <a href="#" class="default-btn">Join With Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Team Section -->
+
     <section class="volunteer-form-area">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="volunteer-form">
               <div class="section-title">
-                <h5 class="subtitle">Join With Us</h5>
                 <h2 class="title">If You Interest! You Can Join With Us <span>As A Volunteer.</span></h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1500 an when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but electronic typesetting, remaining essentially unchanged.</p>
               </div>
-              <form class="volunteer-form-wrapper" id="contact-form" action="http://whizthemes.com/mail-php/raju/arden/mail.php" method="post">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="row row-gutter-20">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <input class="form-control" type="text" name="con_name" placeholder="First Name">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <input class="form-control" type="text" name="con_name" placeholder="Last Name">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <input class="form-control" type="email" name="con_email" placeholder="Email">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <input class="form-control" type="text" name="con_age" placeholder="Age">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <input class="form-control" type="text" name="con_religion" placeholder="Religion">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <input class="form-control" type="text" name="con_phone" placeholder="Phone">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group mb-0">
-                          <textarea class="form-control textarea" name="con_message" placeholder="Message"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group mb-0">
-                          <button class="btn-theme btn-gradient btn-slide no-border" type="submit">Submit Now</button>
-                        </div>
-                      </div>
+              <div class="col-md-8 xs-padding">
+                            @Model.Value("placeholder")
                     </div>
-                  </div>
-                </div>
-              </form>
             </div>
             <!-- Message Notification -->
             <div class="form-message"></div>
@@ -72,75 +85,3 @@
         </div>
       </div>
     </section>
-    <!--== End Volunteer Form Area ==-->
-    <!--== Start Funfact Area ==-->
-    <section class="funfact-area funfact-default-area">
-      <div class="container">
-        <div class="row row-gutter-0 funfact-items-style1">
-          <div class="col-lg-4 funfact-item">
-            <div class="inner-content">
-              <div class="icon-box">
-                <img class="icon" src="assets/img/icons/f1.png" alt="Image-Givest">
-                <img class="shape-img" src="assets/img/shape/4.png" alt="Image-Givest">
-              </div>
-              <div class="content">
-                <div class="number">
-                  <h2><span class="counter-animate">598</span>K</h2>
-                </div>
-                <img class="line-shape" src="assets/img/shape/funfact-line1.png" alt="Image-Givest">
-                <p class="title">// Poor People</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 funfact-item">
-            <div class="inner-content">
-              <div class="icon-box">
-                <img class="icon" src="assets/img/icons/f2.png" alt="Image-Givest">
-                <img class="shape-img" src="assets/img/shape/4.png" alt="Image-Givest">
-              </div>
-              <div class="content">
-                <div class="number">
-                  <h2><span class="counter-animate">897</span>M</h2>
-                </div>
-                <img class="line-shape" src="assets/img/shape/funfact-line1.png" alt="Image-Givest">
-                <p class="title">// Fund raised</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 funfact-item">
-            <div class="inner-content">
-              <div class="icon-box">
-                <img class="icon" src="assets/img/icons/f3.png" alt="Image-Givest">
-                <img class="shape-img" src="assets/img/shape/4.png" alt="Image-Givest">
-              </div>
-              <div class="content">
-                <div class="number">
-                  <h2><span class="counter-animate">998</span>+</h2>
-                </div>
-                <img class="line-shape" src="assets/img/shape/funfact-line1.png" alt="Image-Givest">
-                <p class="title">// Active Member</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--== End Funfact Area ==-->
-
-			<div class="container_12">
-				<div class="gallery">
-					@{
-						foreach(ContentModels.Voluntary item in Voluntaries.Children.Take(Convert.ToInt32(Voluntaries.NumberOfVoluntaries)))
-							{
-								<div class="grid_3">
-								<h2>@item.VoluntaryTitle</h2>
-								<a href=@item.VoluntaryImage.Url() class="gal"><img src=@item.VoluntaryImage.Url() alt=""></a>
-								@item.VoluntaryDescription
-								<br>
-								<a href="#" class="btn">Learn More</a>
-							</div>
-							}
-					}	
-				</div>
-			</div>
-		</div>
